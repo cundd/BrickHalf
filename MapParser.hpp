@@ -7,12 +7,12 @@
 class MapParser {
     std::map<std::string, std::string> parameters;
     char rowDelimiter;
-    char pairSeperator;
+    char pairSeparator;
 
 public:
-    MapParser(char rowDelimiter, char pairSeperator)
+    MapParser(char rowDelimiter, char pairSeparator)
         : rowDelimiter(rowDelimiter)
-        , pairSeperator(pairSeperator)
+        , pairSeparator(pairSeparator)
     {
     }
     std::map<std::string, std::string>& parse(std::string input);

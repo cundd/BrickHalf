@@ -5,7 +5,7 @@ int main(int argc, char** argv)
 {
     int i = 0;
 	char rowDelimiter = ';';
-    char pairSeperator = '=';
+    char pairSeparator = '=';
 
     std::string inputString;
     std::getline(std::cin, inputString);
@@ -21,8 +21,8 @@ int main(int argc, char** argv)
                     // std::cout << rowDelimiter << std::endl;
                 }
                 if (!arg.compare(0, 12, "--separator=")) {
-                    pairSeperator = *(arg.substr(12, 1).c_str());
-                    // std::cout << pairSeperator << std::endl;
+                    pairSeparator = *(arg.substr(12, 1).c_str());
+                    // std::cout << pairSeparator << std::endl;
                 }
             }
         } while (++i < argc);
@@ -31,10 +31,10 @@ int main(int argc, char** argv)
     if (inputString.empty()) {
         std::cerr << "Missing input string" << std::endl;
         
-        std::cout << "Usage brickhalf [--seperator=\";\"] [--delimiter=\"=\"]" << std::endl;
+        std::cout << "Usage brickhalf [--separator=\";\"] [--delimiter=\"=\"]" << std::endl;
         return 1;
     }
-    MapParser parser(rowDelimiter, pairSeperator);
+    MapParser parser(rowDelimiter, pairSeparator);
 
     std::map<std::string, std::string> parsedMap = parser.parse(inputString);
     for (std::pair<std::string, std::string> pair : parsedMap) {

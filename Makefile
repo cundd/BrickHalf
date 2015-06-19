@@ -18,6 +18,8 @@ clean:
 
 test: $(EXECUTABLE)
 	@echo "Run tests:";
-#	@./$(EXECUTABLE) "a=1;b=2"
-	@echo "a=1;b=2" | ./$(EXECUTABLE)
+	@echo "a=1;b=2" | ./$(EXECUTABLE) | wc -l
+	@echo "a=1,b=2" | ./$(EXECUTABLE) --delimiter=, | wc -l
+	@echo "a:1;b:2" | ./$(EXECUTABLE) --separator=: | wc -l
+	@echo "a:1,b:2" | ./$(EXECUTABLE) --delimiter=, --separator=: | wc -l
 	@./$(EXECUTABLE)

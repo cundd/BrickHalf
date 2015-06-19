@@ -30,7 +30,7 @@ std::map<std::string, std::string>& MapParser::parse(std::string input)
     std::vector<std::string> keyValuePairs = splitToVector(input, rowDelimiter);
     for (auto currentKeyValuePair : keyValuePairs) {
         // std::cout << currentKeyValuePair << std::endl;
-        parameters.insert(splitToPair(currentKeyValuePair, pairSeperator));
+        parameters.insert(splitToPair(currentKeyValuePair, pairSeparator));
     }
     return parameters;
 }
